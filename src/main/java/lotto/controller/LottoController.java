@@ -33,14 +33,7 @@ public class LottoController {
     }
 
     private RanksCount matchWith(WinningNumbers winningNumbers, LottoTickets lottoTickets) {
-        RanksCount ranksCount = new RanksCount();
-
-        for (LottoTicket lottoTicket : lottoTickets.lottoTickets()) {
-            WinningRank winningRank = winningNumbers.matchWith(lottoTicket);
-            ranksCount.add(winningRank);
-        }
-
-        return ranksCount;
+        return lottoTickets.ranksCount(winningNumbers);
     }
 
     protected PurchaseAmount createPurchaseAmount() {

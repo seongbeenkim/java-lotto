@@ -1,5 +1,6 @@
 package lotto.domain;
 
+import lotto.enums.WinningRank;
 import lotto.utils.SplitUtil;
 
 import java.util.ArrayList;
@@ -52,6 +53,17 @@ public class LottoTickets {
 
     public void add(LottoTicket lottoTicket) {
         lottoTickets.add(lottoTicket);
+    }
+
+    public RanksCount ranksCount(WinningNumbers winningNumbers) {
+        RanksCount ranksCount = new RanksCount();
+
+        for (LottoTicket lottoTicket : lottoTickets) {
+            WinningRank winningRank = winningNumbers.matchWith(lottoTicket);
+            ranksCount.add(winningRank);
+        }
+
+        return ranksCount;
     }
 
     public List<LottoTicket> lottoTickets() {
