@@ -10,6 +10,10 @@ import java.util.List;
 public class LottoTickets {
     private final List<LottoTicket> lottoTickets;
 
+    public LottoTickets() {
+        this(new ArrayList<>());
+    }
+
     public LottoTickets(LottoTicket lottoTicket) {
         this(Collections.singletonList(lottoTicket));
     }
@@ -23,7 +27,7 @@ public class LottoTickets {
     }
 
     public static LottoTickets createBy(List<String> allLottoNumbers) {
-        LottoTickets lottoTickets = new LottoTickets(new ArrayList<>());
+        LottoTickets lottoTickets = new LottoTickets();
 
         for (String lottoNumbers : allLottoNumbers) {
             List<String> splitedLottoNumbers = SplitUtil.splitByComma(lottoNumbers);
@@ -34,7 +38,7 @@ public class LottoTickets {
     }
 
     public static LottoTickets createBy(int numberOfTicket) {
-        LottoTickets lottoTickets = new LottoTickets(new ArrayList<>());
+        LottoTickets lottoTickets = new LottoTickets();
 
         for (int i = 0; i < numberOfTicket; i++) {
             lottoTickets.add(new LottoTicket(new LottoNumbers()));
