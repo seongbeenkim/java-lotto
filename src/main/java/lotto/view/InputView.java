@@ -1,10 +1,10 @@
 package lotto.view;
 
-import lotto.utils.PreConditionUtil;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import static lotto.utils.PreConditionUtil.checkNullOrEmpty;
 
 public class InputView {
     private static final Scanner scanner = new Scanner(System.in);
@@ -17,16 +17,14 @@ public class InputView {
     public String purchaseAmount() {
         System.out.println(PURCHASE_AMOUNT);
         String purchaseAmount = scanner.nextLine().trim();
-        PreConditionUtil.checkNullOrEmpty(purchaseAmount);
-        return purchaseAmount;
+        return checkNullOrEmpty(purchaseAmount);
     }
 
     public String manualLottoTicketCount() {
         System.out.println();
         System.out.println(MANUAL_LOTTO_TICKET_COUNT);
         String manualLottoTicketCount = scanner.nextLine().trim();
-        PreConditionUtil.checkNullOrEmpty(manualLottoTicketCount);
-        return manualLottoTicketCount;
+        return checkNullOrEmpty(manualLottoTicketCount);
     }
 
     public void manualLottoNumberPhrase() {
@@ -39,8 +37,7 @@ public class InputView {
 
         for (int i = 0; i < manualNumberOfTicket; i++) {
             String lottoNumbers = scanner.nextLine().trim();
-            PreConditionUtil.checkNullOrEmpty(lottoNumbers);
-            manualLottoNumbers.add(lottoNumbers);
+            manualLottoNumbers.add(checkNullOrEmpty(lottoNumbers));
         }
         return manualLottoNumbers;
     }
@@ -49,15 +46,13 @@ public class InputView {
         System.out.println();
         System.out.println(WINNING_NUMBERS);
         String winningNumbers = scanner.nextLine().trim();
-        PreConditionUtil.checkNullOrEmpty(winningNumbers);
-        return winningNumbers;
+        return checkNullOrEmpty(winningNumbers);
     }
 
     public String bonusBall() {
         System.out.println();
         System.out.println(BONUS_BALL);
         String bonusBall = scanner.nextLine().trim();
-        PreConditionUtil.checkNullOrEmpty(bonusBall);
-        return bonusBall;
+        return checkNullOrEmpty(bonusBall);
     }
 }
